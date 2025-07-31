@@ -1,0 +1,25 @@
+TCP AND UDP PORT DISCOVERY
+INTRODUCTION:
+TCP stands for Transmission Control Protocol. It lies between the Application and Network layers and helps in the communication between different devices over a network. It is used in services that require safety, like military sites or email.
+UDP stands for User Datagram Protocol. It is a connectionless method of data transfer between devices in a network. It is typically used in video games, video and music streaming.
+
+DIFFERENCES:
+                                              TCP	                                       UDP
+                1. Connection-oriented. The two devices first establish               1. Connectionless. The data packets are directly 
+                a connection between them and then transmit data.	                     sent between receiving devices.                            
+                2. Reliability is ensured as a connection is made before              2. No reliability as there is no prior connection,
+                data is sent.                                                          which means the delivery of data cannot be guaranteed.
+                3. TCP has extensive error checking mechanisms.                       3. UDP has only basic error checking mechanisms using checksums.
+	              4. TCP is slower as an initial connection has to be made.             4. UDP is faster as there is no need for a connection to be made.
+	              5. Uses handshakes like SYN/ACK.                                      5. No handshakes as it is connectionless.
+	
+
+TCP Scanning:  
+The previous screenshot is the result of TCP port scanning. It shows that 4 out of 1000 common TCP ports are open. Two of these ports are standard SSH and HTTP services, while the other two are test ports.
+Code: nmap -sT scanme.nmap.org
+
+
+UDP Scanning:
+ 
+The above screenshot displays the result of UDP port scanning. Port 123/udp is up and running NTP, which is a program to sync system clocks. The other 9 ports are all open|filtered, indicating firewalled responses.
+Code: sudo -sU –top ports 10 scanme.nmap.org
